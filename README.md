@@ -11,6 +11,8 @@
 
 Kolla-Ansible is the vanilla, production-ready method for deploying OpenStack. It combines Ansible automation with Docker containerization to provide a robust and reliable foundation.
 
+Supported Matrix[https://docs.openstack.org/kolla/latest/support_matrix.html]
+
 #### Key Advantages:
 
 > Production-Ready & Vanilla: Provides an official, upstream OpenStack deployment without vendor lock-in. It uses unmodified, vanilla service configurations optimized for production stability and high availability out-of-the-box.

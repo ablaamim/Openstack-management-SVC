@@ -1,5 +1,12 @@
 ## Deployment with Kolla-Ansible :
 
+</p>
+<p align="center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/OpenStack%C2%AE_Logo_2016.svg" width="800">
+</p>
+
+---
+
 ---
 
 ### Benefits Overview
@@ -41,13 +48,6 @@ Message Queue: RabbitMQ in a mirrored queue cluster to ensure no messages are lo
 Services: All API services (e.g., Keystone, Nova, Neutron) run simultaneously on all controllers, behind the HAProxy load balancer.
 
 This architecture ensures the cloud remains operational even during the failure of an entire controller node, providing a production-ready, resilient infrastructure.
-
----
-
-</p>
-<p align="center">
-<img src="https://github.com/ablaamim/BUSYBOX-LINUX/blob/main/imgs/sysadmin.jpg" width="800">
-</p>
 
 ---
 

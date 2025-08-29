@@ -46,16 +46,14 @@ This architecture ensures the cloud remains operational even during the failure 
 
 </p>
 <p align="center">
-<img src="https://github.com/ablaamim/BUSYBOX-LINUX/blob/main/imgs/sysadmin.jpg" width="500">
+<img src="https://github.com/ablaamim/BUSYBOX-LINUX/blob/main/imgs/sysadmin.jpg" width="800">
 </p>
-
----
 
 ---
 
 </p>
 <p align="center">
-<img src="https://github.com/ablaamim/OPENSTACK-MANAGEMENT-SVC/blob/main/images/Openstack_HA.png" width="500">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/openstack_HA.png" width="800">
 </p>
 
 ---

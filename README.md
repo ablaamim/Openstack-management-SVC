@@ -2,10 +2,8 @@
 
 </p>
 <p align="center">
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/OpenStack%C2%AE_Logo_2016.svg" width="800">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/OpenStack%C2%AE_Logo_2016.svg" width="400">
 </p>
-
----
 
 ---
 
@@ -57,3 +55,18 @@ This architecture ensures the cloud remains operational even during the failure 
 </p>
 
 ---
+
+### Architecture Explanation : 
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/openstack-svc.png" width="800">
+</p>
+
+This Kolla-Ansible architecture deploys a full, production-grade OpenStack cloud by logically grouping all specified services into a highly available (HA) control plane and a scalable data plane.
+
+The Control Plane Cluster hosts all API endpoints (Keystone, Nova, Neutron, Ironic, Designate, etc.), the web dashboard (Horizon), and the central brain for services like orchestration (Heat), metering (Ceilometer), and rating (CloudKitty). High availability for stateful services is provided by a MariaDB Galera cluster and a RabbitMQ cluster, ensuring no single point of failure.
+
+The Data Plane is where the workload executes. Compute Nodes run the Nova hypervisor and host VM instances. The Storage Cluster (Ceph and Swift) provides unified storage for images (Glance), volumes (Cinder), shares (Manila), and objects (Swift), ensuring data resilience. Network services like routing and load balancing (Octavia) can be distributed or centralized. The Bare Metal service (Ironic manages physical servers separately, provisioning them via PXE boot for use as either bare metal instances or hypervisors.
+
+This design ensures scalability (by adding more nodes to each plane), resilience (through HA pairs and clusters), and logical separation of management and data traffic, fulfilling the requirements for a modern private cloud.

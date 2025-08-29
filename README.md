@@ -21,7 +21,7 @@ Supported Matrix [link](https://docs.openstack.org/kolla/latest/support_matrix.h
 
 ## Requirements:
 
-A successful Kolla-Ansible deployment requires meeting several key prerequisites. First, all target nodes must have a supported operating system, such as CentOS 7/8, Rocky Linux 8/9, or Ubuntu 20.04/22.04, with Python 3 installed. Second, each server requires a minimum of two network interfaces: one for management and one for provider/data traffic. Third, the deployment node (which can be one of the controllers) must have Ansible and Docker installed, and password-less SSH access configured to all other nodes in the cluster. Finally, all nodes must have their time synchronized using an NTP service (like Chrony or NTPd) to prevent errors in distributed services. Meeting these requirements ensures a stable foundation for the automated installation of the OpenStack environment.
+A successful Kolla-Ansible deployment requires meeting several key prerequisites. First, all target nodes must have a supported operating system, such as CentOS 7/8, Rocky Linux 8/9, or Ubuntu 20.04/22.04, with Python 3 installed. Second, each server requires a minimum of two network interfaces: one for management and one for provider/data traffic. Third, the deployment node (which can be one of the controllers) must have Ansible and Docker installed, and password-less SSH access configured to all other nodes in the cluster. Finally Meeting these requirements ensures a stable foundation for the automated installation of the OpenStack environment.
 
 ### Key Advantages:
 

@@ -9,7 +9,7 @@
 
 ### Benefits Overview
 
-Kolla-Ansible is the vanilla, production-ready method for deploying OpenStack. It combines Ansible automation with Docker containerization to provide a robust and reliable foundation.
+Kolla-Ansible is the vanilla, production-ready method for deploying OpenStack. It combines Ansible automation with Docker containerization to provide a robust and reliable private cloud.
 
 Choosing Kolla-Ansible over a manual OpenStack install is like choosing a modern assembly line over building something by hand.
 
@@ -23,7 +23,7 @@ Supported Matrix [link](https://docs.openstack.org/kolla/latest/support_matrix.h
 
 A successful Kolla-Ansible deployment requires meeting several key prerequisites. First, all target nodes must have a supported operating system, such as CentOS 7/8, Rocky Linux 8/9, or Ubuntu 20.04/22.04, with Python 3 installed. Second, each server requires a minimum of two network interfaces: one for management and one for provider/data traffic. Third, the deployment node (which can be one of the controllers) must have Ansible and Docker installed, and password-less SSH access configured to all other nodes in the cluster. Finally, all nodes must have their time synchronized using an NTP service (like Chrony or NTPd) to prevent errors in distributed services. Meeting these requirements ensures a stable foundation for the automated installation of the OpenStack environment.
 
-#### Key Advantages:
+### Key Advantages:
 
 > Production-Ready & Vanilla: Provides an official, upstream OpenStack deployment without vendor lock-in. It uses unmodified, vanilla service configurations optimized for production stability and high availability out-of-the-box.
 
@@ -50,6 +50,7 @@ In short, Kolla-Ansible provides a robust, automated foundation for deploying an
 > Kolla-Ansible deploys a highly available (HA) OpenStack cloud by distributing all critical control plane services across a cluster of three or more controller nodes. As the illustration shows, a Virtual IP (VIP) fronts the cluster, acting as a single endpoint for all API traffic, which is load-balanced across the active nodes.
 
 Keeping Your Cloud Reliable
+
 The system is designed to have no single point of failure. It works as a team.
 
 If one server stops working, the others immediately take over. Everything keeps running smoothly without any interruption for users.
@@ -81,8 +82,6 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 </p>
 
 ### OpenStack Deployment Timing Plan:
-
-### OpenStack Deployment Project Plan
 
 | Phase | Activity | Duration | Start Week | End Week | Deliverable |
 | :--- | :--- | :--- | :--- | :--- | :--- |

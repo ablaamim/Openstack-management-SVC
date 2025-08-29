@@ -37,15 +37,12 @@ In short, Kolla-Ansible provides a robust, automated foundation for deploying an
 
 > Kolla-Ansible deploys a highly available (HA) OpenStack cloud by distributing all critical control plane services across a cluster of three or more controller nodes. As the illustration shows, a Virtual IP (VIP) fronts the cluster, acting as a single endpoint for all API traffic, which is load-balanced across the active nodes.
 
-Key HA components include:
+Keeping Your Cloud Reliable
+The system is designed to have no single point of failure. It works as a team.
 
-Databases: MariaDB Galera Cluster for synchronous, multi-master database replication.
+If one server stops working, the others immediately take over. Everything keeps running smoothly without any interruption for users.
 
-Message Queue: RabbitMQ in a mirrored queue cluster to ensure no messages are lost.
-
-Services: All API services (e.g., Keystone, Nova, Neutron) run simultaneously on all controllers, behind the HAProxy load balancer.
-
-This architecture ensures the cloud remains operational even during the failure of an entire controller node, providing a production-ready, resilient infrastructure.
+This makes the cloud highly resilient and always available.
 
 ---
 
@@ -58,11 +55,6 @@ This architecture ensures the cloud remains operational even during the failure 
 
 ### Architecture Explanation : 
 
-</p>
-<p align="center">
-<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/openstack-svc.png" width="800">
-</p>
-
 This Kolla-Ansible architecture deploys a full, production-grade OpenStack cloud by logically grouping all specified services into a highly available (HA) control plane and a scalable data plane.
 
 The Control Plane Cluster hosts all API endpoints (Keystone, Nova, Neutron, Ironic, Designate, etc.), the web dashboard (Horizon), and the central brain for services like orchestration (Heat), metering (Ceilometer), and rating (CloudKitty). High availability for stateful services is provided by a MariaDB Galera cluster and a RabbitMQ cluster, ensuring no single point of failure.
@@ -70,3 +62,8 @@ The Control Plane Cluster hosts all API endpoints (Keystone, Nova, Neutron, Iron
 The Data Plane is where the workload executes. Compute Nodes run the Nova hypervisor and host VM instances. The Storage Cluster (Ceph and Swift) provides unified storage for images (Glance), volumes (Cinder), shares (Manila), and objects (Swift), ensuring data resilience. Network services like routing and load balancing (Octavia) can be distributed or centralized. The Bare Metal service (Ironic manages physical servers separately, provisioning them via PXE boot for use as either bare metal instances or hypervisors.
 
 This design ensures scalability (by adding more nodes to each plane), resilience (through HA pairs and clusters), and logical separation of management and data traffic, fulfilling the requirements for a modern private cloud.
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/openstack-svc.png" width="800">
+</p>

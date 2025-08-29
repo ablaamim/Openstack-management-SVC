@@ -1,4 +1,4 @@
-## Deployment with Kolla-Ansible :
+## Deployment with Kolla-Ansible:
 
 </p>
 <p align="center">
@@ -17,9 +17,11 @@ With a manual install, you must carefully put every single piece in place yourse
 
 Kolla-Ansible automates all of this. It gives you a proven recipe to build your cloud quickly and the same way every time. It puts each service in its own container, so they don't interfere with each other. If you need to upgrade or fix something, you can usually just replace one container without stopping the whole cloud. This makes the system much more reliable and easy to take care of.
 
-
-
 Supported Matrix [link](https://docs.openstack.org/kolla/latest/support_matrix.html)
+
+## Requirements:
+
+A successful Kolla-Ansible deployment requires meeting several key prerequisites. First, all target nodes must have a supported operating system, such as CentOS 7/8, Rocky Linux 8/9, or Ubuntu 20.04/22.04, with Python 3 installed. Second, each server requires a minimum of two network interfaces: one for management and one for provider/data traffic. Third, the deployment node (which can be one of the controllers) must have Ansible and Docker installed, and password-less SSH access configured to all other nodes in the cluster. Finally, all nodes must have their time synchronized using an NTP service (like Chrony or NTPd) to prevent errors in distributed services. Meeting these requirements ensures a stable foundation for the automated installation of the OpenStack environment.
 
 #### Key Advantages:
 
@@ -63,7 +65,7 @@ This makes the cloud highly resilient and always available.
 
 ---
 
-### Architecture Explanation : 
+### Architecture Explanation: 
 
 This Kolla-Ansible architecture deploys a full, production-grade OpenStack cloud by logically grouping all specified services into a highly available (HA) control plane and a scalable data plane.
 
@@ -77,3 +79,16 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 <p align="center">
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/openstack-svc.png" width="800">
 </p>
+
+### OpenStack Deployment Timing Plan:
+
+### OpenStack Deployment Project Plan
+
+| Phase | Activity | Duration | Start Week | End Week | Deliverable |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **1. Planning** | Requirements gathering and design | 2 weeks | Month 1, Week 1 | Month 1, Week 2 | Technical specification document |
+| **2. Setup** | Hardware preparation and network configuration | 2 weeks | Month 1, Week 3 | Month 1, Week 4 | Ready infrastructure |
+| **3. Core Deployment** | Deploy fundamental services (Keystone, Nova, Neutron, Glance, Horizon) | 2 weeks | Month 2, Week 1 | Month 2, Week 2 | Basic cloud operational |
+| **4. Storage Setup** | Deploy and configure Cinder, Swift, Ceph | 2 weeks | Month 2, Week 3 | Month 2, Week 4 | Storage services ready |
+| **5. Advanced Services** | Deploy remaining services (Octavia, Heat, Barbican, etc.) | 3 weeks | Month 3, Week 1 | Month 3, Week 3 | Full feature set available |
+| **6. Testing & Handover** | User acceptance testing and documentation | 2 weeks | Month 3, Week 4 | Month 3, Week 4 | Production-ready cloud |

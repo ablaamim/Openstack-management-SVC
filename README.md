@@ -141,23 +141,39 @@ Legend / Flow:
 
 #### Runing containers on each node :
 
-##### Compute node :
+##### Compute and controller nodes running sercvices :
 
 > This OpenStack deployment was automated using Kolla Ansible, which containerizes all OpenStack services for improved isolation, manageability, and consistency. Each service—including the core compute (Nova), networking (Neutron), and identity (Keystone) components—runs within its own dedicated Docker container across the controller and compute nodes. This container-based approach, orchestrated by Ansible, streamlines the initial installation, simplifies future upgrades, and ensures a highly reproducible environment across all nodes in the cloud infrastructure.
+
+### compute Node
 
 </p>
 <p align="center">
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/compute-containers.png" width="1000">
 </p>
 
-##### controller node :
+### Controller Node 
 
 </p>
 <p align="center">
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/controller services.png" width="1000">
 </p>
 
-#### List of deployed services :
+#### core OpenStack services deployed :
+
+* Keystone (identity): The identity service provides authentication and authorization for all other OpenStack services.
+
+* Nova (compute): The compute service manages and provisions virtual machine instances on the compute nodes.
+
+* Neutron (network): The networking service provides Software-Defined Networking (SDN) capabilities, managing networks and IP addresses for instances.
+
+* Glance (image): The image service stores and manages disk images and templates used to create virtual machine instances.
+
+* Placement: The placement service tracks resource inventory and assists in selecting optimal compute nodes for new instances.
+
+* Heat (orchestration): The orchestration service allows for the automated provisioning of cloud infrastructure using templated definitions.
+
+* Heat-cfn (cloudformation): Provides an API compatible with AWS CloudFormation, enabling the use of AWS templates within OpenStack.
 
 </p>
 <p align="center">

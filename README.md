@@ -7,7 +7,7 @@
 
 ---
 
-### Benefits Overview
+### Benefits Overview:
 
 Kolla-Ansible is the vanilla, production-ready method for deploying OpenStack. It combines Ansible automation with Docker containerization to provide a robust and reliable private cloud.
 
@@ -45,7 +45,7 @@ In short, Kolla-Ansible provides a robust, automated foundation for deploying an
 
 ---
 
-### Deployment Overview
+### Deployment Overview:
 
 > Kolla-Ansible deploys a highly available (HA) OpenStack cloud by distributing all critical control plane services across a cluster of three or more controller nodes. As the illustration shows, a Virtual IP (VIP) fronts the cluster, acting as a single endpoint for all API traffic, which is load-balanced across the active nodes.
 
@@ -92,17 +92,17 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 | **5. Advanced Services** | Deploy remaining services (Octavia, Heat, Barbican, etc.) | 3 weeks | Month 3, Week 1 | Month 3, Week 3 | Full feature set available |
 | **6. Testing & Handover** | User acceptance testing and documentation | 2 weeks | Month 3, Week 4 | Month 3, Week 4 | Production-ready cloud |
 
-### Proof of concept of Openstack minimal installation :
+### Proof of concept with Openstack Core services installation:
 
 ---
 
-#### DigitalOCean Deployement :
+#### DigitalOCean Deployement:
 
-> I deployed minimal Openstack accross 4 Virtual machines on DigitalOcean plateform
+> I deployed minimal Openstack accross 4 Virtual machines on DigitalOcean plateform in order to proof the concept of Kolla ansible deployment.
 
 ##### OpenStack Deployment Diagram
 
-# OpenStack Deployment Diagram
+##### OpenStack Deployment Diagram
 
 ```bash
 +------------------------------------------------------------------+
@@ -131,7 +131,7 @@ Legend / Flow:
 
 * The Block-Storage node provides persistent storage volumes that can be attached to instances running on the compute nodes.
 
-* All nodes communicate with each other over the network (represented by the connecting lines).
+* All nodes communicate with each other over the network (represented by the connecting lines, VPC in digitalOcean.
 
 </p>
 <p align="center">
@@ -139,27 +139,27 @@ Legend / Flow:
 </p>
 
 
-#### Runing containers on each node :
+#### Runing containers on each node:
 
-##### Compute and controller nodes running sercvices :
+##### Compute and controller nodes running sercvices:
 
 > This OpenStack deployment was automated using Kolla Ansible, which containerizes all OpenStack services for improved isolation, manageability, and consistency. Each service—including the core compute (Nova), networking (Neutron), and identity (Keystone) components—runs within its own dedicated Docker container across the controller and compute nodes. This container-based approach, orchestrated by Ansible, streamlines the initial installation, simplifies future upgrades, and ensures a highly reproducible environment across all nodes in the cloud infrastructure.
 
-### compute Node
+#### compute Node:
 
 </p>
 <p align="center">
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/compute-containers.png" width="1000">
 </p>
 
-### Controller Node 
+#### Controller Node: 
 
 </p>
 <p align="center">
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/controller services.png" width="1000">
 </p>
 
-#### Core OpenStack services deployed :
+#### Core OpenStack services deployed:
 
 * Keystone (identity): The identity service provides authentication and authorization for all other OpenStack services.
 
@@ -180,14 +180,14 @@ Legend / Flow:
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/various data.png" width="1000">
 </p>
 
-#### Network Topology :
+#### Network Topology:
 
 * The deployment uses a simple two-network model with an internal project network (selfservice) for instance communication and an external network (provider) for internet access -> InternalNetwork : selfservice, and ExternalNetwork : provider.
 
 * A virtual router (openstack router) interconnects the internal and external networks, providing Network Address Translation (NAT) to allow instances on the internal network to connect to and be reached from the internet.
 
 ```bash
-# OpenStack Network Topology
+# OpenStack Network Topology:
 
 +-------------+      +-----------------------+
 |   External  |      |      Virtual Router   |
@@ -219,7 +219,7 @@ Legend / Flow:
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/router.png" width="1000">
 </p>
 
-#### Instance test :
+#### Instance test:
 
 > A test running a Debian VM on openstack infrastructure, the only remaining config is access to NOVNC from digitalOcean provided ip, it requires additional configuration from a loadbalancer, which is not mandatory in baremetal nor on other plateforms like AWS.
 

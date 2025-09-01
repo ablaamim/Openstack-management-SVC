@@ -96,3 +96,56 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 
 ---
 
+#### DigitalOCean Deployement :
+
+> I deployed minimal Openstack accross 4 Virtual machines on DigitalOcean plateform
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/digitalocean.png" width="1000">
+</p>
+
+
+#### Runing containers on each node :
+
+##### Compute node :
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/compute-containers.png" width="1000">
+</p>
+
+##### controller node :
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/controller services.png" width="1000">
+</p>
+
+#### List of deployed services :
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/various data.png" width="1000">
+</p>
+
+#### Network Topology :
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/network-topology.png" width="1000">
+</p>
+
+#### Router :
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/router.png" width="1000">
+</p>
+
+#### Instance test :
+
+</p>
+<p align="center">
+<img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/instance.png" width="1000">
+</p>

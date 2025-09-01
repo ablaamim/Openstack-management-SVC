@@ -104,6 +104,7 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 
 # OpenStack Deployment Diagram
 
+```bash
 +------------------------------------------------------------------+
 |                  DigitalOcean Project                            |
 |                                                                  |
@@ -119,6 +120,8 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 |            | 143.198.103.29 |                                    |
 |            +----------------+                                    |
 +-------------------------------------------------------------------
+```
+
 
 Legend / Flow:
 

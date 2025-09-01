@@ -88,7 +88,7 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 | **1. Planning** | Requirements gathering and design | 2 weeks | Month 1, Week 1 | Month 1, Week 2 | Technical specification document |
 | **2. Setup** | Hardware preparation and network configuration | 2 weeks | Month 1, Week 3 | Month 1, Week 4 | Ready infrastructure |
 | **3. Core Deployment** | Deploy fundamental services (Keystone, Nova, Neutron, Glance, Horizon) | 2 weeks | Month 2, Week 1 | Month 2, Week 2 | Basic cloud operational |
-| **4. Storage Setup** | Deploy and configure Cinder, Swift, Ceph | 2 weeks | Month 2, Week 3 | Month 2, Week 4 | Storage services ready |
+| **4. Storage Setup** | Deploy and configure Cinder, Swift | 2 weeks | Month 2, Week 3 | Month 2, Week 4 | Storage services ready |
 | **5. Advanced Services** | Deploy remaining services (Octavia, Heat, Barbican, etc.) | 3 weeks | Month 3, Week 1 | Month 3, Week 3 | Full feature set available |
 | **6. Testing & Handover** | User acceptance testing and documentation | 2 weeks | Month 3, Week 4 | Month 3, Week 4 | Production-ready cloud |
 
@@ -100,6 +100,36 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 
 > I deployed minimal Openstack accross 4 Virtual machines on DigitalOcean plateform
 
+##### OpenStack Deployment Diagram
+
+# OpenStack Deployment Diagram
+
++------------------------------------------------------------------+
+|                  DigitalOcean Project                            |
+|                                                                  |
+|  +-------------+      +----------------+      +----------------+ |
+|  | Controller  |------| Block-Storage  |      |    Compute1    | |
+|  | 178.128.4.42|      |206.189.208.220 |      | 146.190.123.49 | |
+|  +-------------+      +----------------+      +----------------+ |
+|      |     |                                      |     |        |
+|      |     |--------------------------------------|     |        |
+|      |                                                  |        |
+|      |     +----------------+                           |        |
+|      |-----|    Compute2    |---------------------------|        |
+|            | 143.198.103.29 |                                    |
+|            +----------------+                                    |
++-------------------------------------------------------------------
+
+Legend / Flow:
+
+* The Controller node manages the entire OpenStack environment (API services, scheduler, etc.).
+
+* The Compute nodes (Compute1, Compute2) host and run the virtual machine instances.
+
+* The Block-Storage node provides persistent storage volumes that can be attached to instances running on the compute nodes.
+
+* All nodes communicate with each other over the network (represented by the connecting lines).
+
 </p>
 <p align="center">
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/digitalocean.png" width="1000">
@@ -109,6 +139,8 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 #### Runing containers on each node :
 
 ##### Compute node :
+
+> This OpenStack deployment was automated using Kolla Ansible, which containerizes all OpenStack services for improved isolation, manageability, and consistency. Each service—including the core compute (Nova), networking (Neutron), and identity (Keystone) components—runs within its own dedicated Docker container across the controller and compute nodes. This container-based approach, orchestrated by Ansible, streamlines the initial installation, simplifies future upgrades, and ensures a highly reproducible environment across all nodes in the cloud infrastructure.
 
 </p>
 <p align="center">

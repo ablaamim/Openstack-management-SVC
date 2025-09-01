@@ -182,16 +182,16 @@ Legend / Flow:
 
 #### Network Topology :
 
-* The deployment uses a simple two-network model with an internal project network (selfservice) for instance communication and an external network (provider) for internet access.
+* The deployment uses a simple two-network model with an internal project network (selfservice) for instance communication and an external network (provider) for internet access -> InternalNetwork : selfservice, and ExternalNetwork : provider.
 
-* A virtual router (router1) interconnects the internal and external networks, providing Network Address Translation (NAT) to allow instances on the internal network to connect to and be reached from the internet.
+* A virtual router (openstack router) interconnects the internal and external networks, providing Network Address Translation (NAT) to allow instances on the internal network to connect to and be reached from the internet.
 
 ```bash
 # OpenStack Network Topology
 
 +-------------+      +-----------------------+
 |   External  |      |      Virtual Router   |
-|  Network    |------|        (router1)      |
+|  Network    |------|    (openstak router)  |
 | (provider)  |      +-----------------------+
 +-------------+               |        |
                               |        |

@@ -92,7 +92,7 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 | **5. Advanced Services** | Deploy remaining services (Octavia, Heat, Barbican, etc.) | 3 weeks | Month 3, Week 1 | Month 3, Week 3 | Full feature set available |
 | **6. Testing & Handover** | User acceptance testing and documentation | 2 weeks | Month 3, Week 4 | Month 3, Week 4 | Production-ready cloud |
 
-### Proof of concept :
+### Proof of concept of Openstack minimal installation :
 
 ---
 
@@ -159,7 +159,7 @@ Legend / Flow:
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/controller services.png" width="1000">
 </p>
 
-#### core OpenStack services deployed :
+#### Core OpenStack services deployed :
 
 * Keystone (identity): The identity service provides authentication and authorization for all other OpenStack services.
 
@@ -182,12 +182,37 @@ Legend / Flow:
 
 #### Network Topology :
 
+* The deployment uses a simple two-network model with an internal project network (selfservice) for instance communication and an external network (provider) for internet access.
+
+* A virtual router (router1) interconnects the internal and external networks, providing Network Address Translation (NAT) to allow instances on the internal network to connect to and be reached from the internet.
+
+```bash
+# OpenStack Network Topology
+
++-------------+      +-----------------------+
+|   External  |      |      Virtual Router   |
+|  Network    |------|        (router1)      |
+| (provider)  |      +-----------------------+
++-------------+               |        |
+                              |        |
+                      +-------------+  |
+                      |  Internal   |  |
+                      |   Network   |  |
+                      | (selfservice)| |
+                      +-------------+  |
+                              |        |
+                    +---------+--------+---------+
+                    |         |        |         |
+                  +---+    +---+    +---+    +---+
+                  |VM1|    |VM2|    |VM3|    |...|
+                  +---+    +---+    +---+    +---+
+                    (Instances on internal network)
+```
+
 </p>
 <p align="center">
 <img src="https://github.com/ablaamim/Openstack-management-SVC/blob/main/images/network-topology.png" width="1000">
 </p>
-
-#### Router :
 
 </p>
 <p align="center">
@@ -195,6 +220,8 @@ Legend / Flow:
 </p>
 
 #### Instance test :
+
+> A test running a Debian VM on openstack infrastructure, the only remaining config is access to NOVNC from digitalOcean provided ip, it requires additional configuration from a loadbalancer, which is not mandatory in baremetal nor on other plateforms like AWS.
 
 </p>
 <p align="center">

@@ -91,3 +91,8 @@ This design ensures scalability (by adding more nodes to each plane), resilience
 | **4. Storage Setup** | Deploy and configure Cinder, Swift, Ceph | 2 weeks | Month 2, Week 3 | Month 2, Week 4 | Storage services ready |
 | **5. Advanced Services** | Deploy remaining services (Octavia, Heat, Barbican, etc.) | 3 weeks | Month 3, Week 1 | Month 3, Week 3 | Full feature set available |
 | **6. Testing & Handover** | User acceptance testing and documentation | 2 weeks | Month 3, Week 4 | Month 3, Week 4 | Production-ready cloud |
+
+### Proof of concept :
+
+---
+
